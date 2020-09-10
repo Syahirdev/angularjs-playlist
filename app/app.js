@@ -1,9 +1,15 @@
-var myApp = angular.module("myApp", []);
+var myPersonApp = angular.module("myPersonApp", []);
 
 //Fire before app run
-myApp.config(function () {});
+myPersonApp.config(function () {});
 
 //Fire once app is running
-myApp.run(function () {});
+myPersonApp.run(function () {});
 
-// myApp.controller;
+myPersonApp.controller("PersonController", [
+	"$scope",
+	function ($scope) {
+		$scope.message = "Hello World";
+		$scope.persons = ["Syazmi", "Syakira", "Syahir", "Sameon"];
+	},
+]);

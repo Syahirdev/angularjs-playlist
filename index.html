@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="myPersonApp">
 	<head>
 		<title>TheNetNinja Angular Playlist</title>
 		<link href="content/css/styles.css" rel="stylesheet" type="text/css" />
 		<script src="node_modules\angular\angular.min.js"></script>
+		<script src="app/app.js"></script>
 	</head>
-	<body ng-init="persons=['Syazmi','Syakira','Syahir','Sameon']">
-		<input type="text" ng-model="favMeat" placeholder="Enter your favourite meat" />
-		<ul>
-			<li ng-repeat="person in persons">{{person}}</li>
-		</ul>
+	<body>
+		<div ng-controller="PersonController">
+			<p>{{message}}</p>
+			<ul>
+				<li ng-repeat="person in persons">{{person}}</li>
+			</ul>
+		</div>
 	</body>
-	<script src="app/app.js"></script>
 </html>
