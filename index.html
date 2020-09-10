@@ -15,6 +15,7 @@
 				<input type="text" ng-model="search" />
 				<ul>
 					<li ng-repeat="person in persons | orderBy: order | filter: search" ng-show="person.available">
+						<img ng-src="{{person.thumb}}" style="margin: -12px 10px 0 0; float: left; width: 50px" ng-show="person.thumb" />
 						<h3>{{person.name}} - {{person.weight | currency: 'RM '}}</h3>
 						<div class="remove" ng-click="removePerson(person)">x</div>
 						<span class="belt" style="background: {{person.color}}">{{person.color}}</span>
