@@ -9,6 +9,11 @@ myPersonApp.run(function () {});
 myPersonApp.controller("PersonController", [
 	"$scope",
 	function ($scope) {
+		$scope.removePerson = function (person) {
+			var removedPerson = $scope.persons.indexOf(person);
+			$scope.persons.splice(removedPerson, 1);
+		};
+
 		$scope.persons = [
 			{
 				name: "Syahir",

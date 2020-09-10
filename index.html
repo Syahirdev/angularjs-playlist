@@ -10,11 +10,14 @@
 		<header ng-include="'header.html'"></header>
 		<div class="content">
 			<div ng-controller="PersonController">
-				<p>{{message}}</p>
+				<button ng-click="order = 'name'">Order By Name</button>
+				<button ng-click="order = 'color'">Order By Color</button>
 				<input type="text" ng-model="search" />
 				<ul>
-					<li ng-repeat="person in persons | orderBy: '-name' | filter: search" ng-show="person.available">
-						{{person.name}} - {{person.weight | currency: 'RM '}}
+					<li ng-repeat="person in persons | orderBy: order | filter: search" ng-show="person.available">
+						<h3>{{person.name}} - {{person.weight | currency: 'RM '}}</h3>
+						<div class="remove" ng-click="removePerson(person)">x</div>
+						<span class="belt" style="background: {{person.color}}">{{person.color}}</span>
 					</li>
 				</ul>
 			</div>
