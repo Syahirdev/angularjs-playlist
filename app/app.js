@@ -7,6 +7,7 @@ myPersonApp.config([
 		$routeProvider
 			.when("/home", {
 				templateUrl: "views/home.html",
+				controller: "PersonController",
 			})
 			.when("/directory", {
 				templateUrl: "views/directory.html",
@@ -20,6 +21,22 @@ myPersonApp.config([
 
 //Fire once app is running
 myPersonApp.run(function () {});
+
+myPersonApp.directive("randomPerson", [
+	function ($scope, $http) {
+		return {
+			restrict: "E",
+			scope: {
+				persons: "=",
+				title: "=",
+			},
+			templateUrl: "views/random.html",
+			controller: function ($scope) {
+				$scope.random = Math.floor(Math.random() * 4);
+			},
+		};
+	},
+]);
 
 myPersonApp.controller("PersonController", [
 	"$scope",
