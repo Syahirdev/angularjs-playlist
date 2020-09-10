@@ -23,7 +23,8 @@ myPersonApp.run(function () {});
 
 myPersonApp.controller("PersonController", [
 	"$scope",
-	function ($scope) {
+	"$http",
+	function ($scope, $http) {
 		$scope.removePerson = function (person) {
 			var removedPerson = $scope.persons.indexOf(person);
 			$scope.persons.splice(removedPerson, 1);
@@ -42,35 +43,10 @@ myPersonApp.controller("PersonController", [
 			$scope.newPerson.weight = "";
 		};
 
-		$scope.persons = [
-			{
-				name: "Syahir",
-				color: "green",
-				weight: 50,
-				available: true,
-				thumb: "http://placehold.it/50x50/666666/ffffff",
-			},
-			{
-				name: "Syazmi",
-				color: "blue",
-				weight: 45,
-				available: true,
-				thumb: "http://placehold.it/50x50/666666/ffffff",
-			},
-			{
-				name: "Syakira",
-				color: "yellow",
-				weight: 47,
-				available: true,
-				thumb: "http://placehold.it/50x50/666666/ffffff",
-			},
-			{
-				name: "Sameon",
-				color: "red",
-				weight: 69,
-				available: false,
-				thumb: "http://placehold.it/50x50/666666/ffffff",
-			},
-		];
+		$http.get("data/persons.json").then(function (response) {
+			$scope.persons = response.data;
+		});
+
+		// console.log(angular.toJson($scope.persons));
 	},
 ]);
