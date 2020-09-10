@@ -5,8 +5,10 @@
 		<link href="content/css/styles.css" rel="stylesheet" type="text/css" />
 		<script src="node_modules\angular\angular.min.js"></script>
 	</head>
-	<body ng-init="color='orange'">
+	<body ng-init="persons=['Syazmi','Syakira','Syahir','Sameon']">
 		<input type="text" ng-model="favMeat" placeholder="Enter your favourite meat" />
-		<p class="{{color}}">Hello mi cuk</p>
+		<ul>
+			<li ng-repeat="person in persons">{{person}}</li>
+		</ul>
 	</body>
 </html>
