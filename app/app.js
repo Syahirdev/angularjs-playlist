@@ -1,7 +1,22 @@
-var myPersonApp = angular.module("myPersonApp", []);
+var myPersonApp = angular.module("myPersonApp", ["ngRoute"]);
 
 //Fire before app run
-myPersonApp.config(function () {});
+myPersonApp.config([
+	"$routeProvider",
+	function ($routeProvider) {
+		$routeProvider
+			.when("/home", {
+				templateUrl: "views/home.html",
+			})
+			.when("/directory", {
+				templateUrl: "views/directory.html",
+				controller: "PersonController",
+			})
+			.otherwise({
+				redirectTo: "/home",
+			});
+	},
+]);
 
 //Fire once app is running
 myPersonApp.run(function () {});
