@@ -14,6 +14,19 @@ myPersonApp.controller("PersonController", [
 			$scope.persons.splice(removedPerson, 1);
 		};
 
+		$scope.addPerson = function () {
+			$scope.persons.push({
+				name: $scope.newPerson.name,
+				color: $scope.newPerson.color,
+				weight: parseInt($scope.newPerson.weight),
+				available: true,
+			});
+
+			$scope.newPerson.name = "";
+			$scope.newPerson.color = "";
+			$scope.newPerson.weight = "";
+		};
+
 		$scope.persons = [
 			{
 				name: "Syahir",

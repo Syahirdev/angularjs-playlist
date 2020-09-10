@@ -20,6 +20,12 @@
 						<span class="belt" style="background: {{person.color}}">{{person.color}}</span>
 					</li>
 				</ul>
+				<form ng-submit="addPerson()">
+					<input type="text" placeholder="name" ng-model="newPerson.name" />
+					<input type="text" placeholder="color" ng-model="newPerson.color" />
+					<input type="text" placeholder="weight" ng-model="newPerson.weight" />
+					<input type="submit" value="Add New Person" />
+				</form>
 			</div>
 		</div>
 	</body>
