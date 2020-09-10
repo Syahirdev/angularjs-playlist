@@ -9,8 +9,9 @@
 	<body>
 		<div ng-controller="PersonController">
 			<p>{{message}}</p>
+			<input type="text" ng-model="search" />
 			<ul>
-				<li ng-repeat="person in persons">{{person}}</li>
+				<li ng-repeat="person in persons | orderBy: '-name' | filter: search">{{person.name}} - {{person.weight | currency: 'RM '}}</li>
 			</ul>
 		</div>
 	</body>
