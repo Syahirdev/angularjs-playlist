@@ -3,7 +3,10 @@ var myPersonApp = angular.module("myPersonApp", ["ngRoute", "ngAnimate"]);
 //Fire before app run
 myPersonApp.config([
 	"$routeProvider",
-	function ($routeProvider) {
+	"$locationProvider",
+	function ($routeProvider, $locationProvider) {
+		$locationProvider.html5Mode(true);
+
 		$routeProvider
 			.when("/home", {
 				templateUrl: "views/home.html",
