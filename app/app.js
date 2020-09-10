@@ -9,6 +9,9 @@ myPersonApp.config([
 				templateUrl: "views/home.html",
 				controller: "PersonController",
 			})
+			.when("/contact", {
+				templateUrl: "views/contact.html",
+			})
 			.when("/directory", {
 				templateUrl: "views/directory.html",
 				controller: "PersonController",

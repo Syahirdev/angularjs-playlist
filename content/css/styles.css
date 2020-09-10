@@ -122,6 +122,19 @@ main {
 	margin-left: 10px;
 }
 
+.content textarea {
+	width: 90%;
+	padding: 10px 5%;
+	border-radius: 10px;
+	border: 2px solid #ddd;
+	margin: 10px 0;
+}
+
+input[disabled="disabled"] {
+	opacity: 0.4;
+	cursor: not-allowed !important;
+}
+
 /* ANIMATION */
 /* The starting CSS styles for the enter animation */
 main.ng-enter {
@@ -159,4 +172,9 @@ main.ng-enter.ng-enter-active {
 #person-list li.ng-leave-stagger {
 	transition-delay: 0.2s;
 	transition-duration: 0;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+	border: 2px solid red;
 }
