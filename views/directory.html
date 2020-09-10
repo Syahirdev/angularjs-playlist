@@ -2,7 +2,7 @@
 	<button ng-click="order = 'name'">Order By Name</button>
 	<button ng-click="order = 'color'">Order By Color</button>
 	<input type="text" ng-model="search" />
-	<ul>
+	<ul id="person-list">
 		<li ng-repeat="person in persons | orderBy: order | filter: search" ng-show="person.available">
 			<img ng-src="{{person.thumb}}" style="margin: -12px 10px 0 0; float: left; width: 50px" ng-show="person.thumb" />
 			<h3>{{person.name}} - {{person.weight | currency: 'RM '}}</h3>
@@ -16,4 +16,5 @@
 		<input type="text" placeholder="weight" ng-model="newPerson.weight" />
 		<input type="submit" value="Add New Person" />
 	</form>
+	<a href="" ng-click="removeAll()">Remove All Persons</a>
 </div>

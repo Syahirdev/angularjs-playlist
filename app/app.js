@@ -1,4 +1,4 @@
-var myPersonApp = angular.module("myPersonApp", ["ngRoute"]);
+var myPersonApp = angular.module("myPersonApp", ["ngRoute", "ngAnimate"]);
 
 //Fire before app run
 myPersonApp.config([
@@ -60,6 +60,10 @@ myPersonApp.controller("PersonController", [
 			$scope.newPerson.name = "";
 			$scope.newPerson.color = "";
 			$scope.newPerson.weight = "";
+		};
+
+		$scope.removeAll = function () {
+			$scope.persons = [];
 		};
 
 		$http.get("data/persons.json").then(function (response) {
