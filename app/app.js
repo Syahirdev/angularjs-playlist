@@ -11,6 +11,11 @@ myPersonApp.config([
 			})
 			.when("/contact", {
 				templateUrl: "views/contact.html",
+				controller: "ContactController",
+			})
+			.when("/contact-success", {
+				templateUrl: "views/contact-success.html",
+				controller: "ContactController",
 			})
 			.when("/directory", {
 				templateUrl: "views/directory.html",
@@ -74,5 +79,15 @@ myPersonApp.controller("PersonController", [
 		});
 
 		// console.log(angular.toJson($scope.persons));
+	},
+]);
+
+myPersonApp.controller("ContactController", [
+	"$scope",
+	"$location",
+	function ($scope, $location) {
+		$scope.sendMessage = function () {
+			$location.path("/contact-success");
+		};
 	},
 ]);
